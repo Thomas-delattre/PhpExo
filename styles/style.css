@@ -1,0 +1,1392 @@
+@charset "UTF-8";
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Oswald-Regular";
+}
+
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("./../assets/fonts/Oswald/Oswald-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Oswald-Semi-bold";
+  src: url("./../assets/fonts/Oswald/Oswald-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Oswald-ExtraLight";
+  src: url("./../assets/fonts/Oswald/Oswald-ExtraLight.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body::-moz-selection {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+body::selection {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+header {
+  background: url(/assets/img/fond-home.png) center/cover;
+}
+
+header .navbar {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar .logo {
+    width: 100%;
+  }
+}
+
+header .navbar .logo .icon {
+  height: 50px;
+  margin-top: 22px;
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar .logo .icon {
+    margin-left: 5%;
+    margin-top: 116px;
+  }
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar .nav-list {
+    width: 40%;
+    text-align: center;
+    padding-top: 3%;
+    display: none;
+  }
+}
+
+header .navbar .nav-list .list-item {
+  padding: 5rem 2rem;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar .nav-list .list-item {
+    display: block;
+    padding: 3%;
+  }
+}
+
+header .navbar .nav-list .list-item a {
+  letter-spacing: 2px;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+  color: #18223b;
+}
+
+header .navbar .nav-list .list-item .underline {
+  display: inline-block;
+  position: relative;
+  color: #18223b;
+}
+
+header .navbar .nav-list .list-item .underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #f6a11c;
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+  -webkit-transition: -webkit-transform 0.35s ease-out;
+  transition: -webkit-transform 0.35s ease-out;
+  transition: transform 0.35s ease-out;
+  transition: transform 0.35s ease-out, -webkit-transform 0.35s ease-out;
+}
+
+header .navbar .nav-list .list-item .underline:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+header .navbar #hamburger {
+  display: none;
+  top: 20%;
+  left: 80%;
+  width: 40px;
+  height: 22px;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+header .navbar #hamburger #hamburger:active {
+  display: block;
+  position: absolute;
+  right: 2rem;
+  top: 15%;
+}
+
+@media screen and (max-width: 1190px) {
+  header .navbar #hamburger {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 123px;
+  }
+}
+
+@media screen and (max-width: 924px) {
+  header .navbar #hamburger {
+    display: block;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  header .navbar #hamburger {
+    display: block;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  header .navbar #hamburger {
+    display: block;
+    position: absolute;
+  }
+}
+
+header .navbar #hamburger #hamburger:hover {
+  cursor: pointer;
+}
+
+header .navbar #hamburger span {
+  position: absolute;
+  left: 50%;
+  width: 26px;
+  height: 2px;
+  background-color: #000;
+}
+
+header .navbar #hamburger span:nth-child(1) {
+  top: 0;
+  -webkit-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
+}
+
+header .navbar #hamburger span:nth-child(2) {
+  top: 8px;
+  opacity: 1;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+header .navbar #hamburger span:last-child {
+  top: 16px;
+  -webkit-transform: translateX(-50%) translateY(0);
+          transform: translateX(-50%) translateY(0);
+}
+
+header .navbar #hamburger.active span:nth-child(1) {
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(0) rotate(45deg);
+          transform: translateX(-50%) translateY(0) rotate(45deg);
+}
+
+header .navbar #hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+header .navbar #hamburger.active span:last-child {
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(0) rotate(-45deg);
+          transform: translateX(-50%) translateY(0) rotate(-45deg);
+}
+
+header .navbar .active {
+  display: block;
+  position: absolute;
+  height: 30%;
+  width: 35%;
+  background-color: #b4bbc4;
+  border-radius: 5px;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  text-align: center;
+  left: 60%;
+  top: 18%;
+  opacity: 0.95;
+}
+
+#presentation .prez {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10%;
+  margin: 10% 0;
+  line-height: 1.75;
+}
+
+@media screen and (max-width: 1059px) {
+  #presentation .prez {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+#presentation .prez .card {
+  padding: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 1059px) {
+  #presentation .prez .card {
+    padding-bottom: 10%;
+  }
+}
+
+#presentation .prez .card .card + .card {
+  margin-left: 3%;
+}
+
+#presentation .prez .card .circle img {
+  height: 120px;
+  margin-bottom: 15%;
+}
+
+@media screen and (max-width: 933px) {
+  #presentation .prez .card .circle img {
+    margin-bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 1059px) {
+  #presentation .prez .card .circle img {
+    margin-bottom: 10%;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 1059px) {
+  #presentation .prez .card .circle img {
+    height: 120px;
+  }
+}
+
+#presentation .prez .card h2 {
+  color: #f6a11c;
+  text-transform: uppercase;
+  margin-bottom: 5%;
+}
+
+#presentation .prez .card strong {
+  color: #f6a11c;
+}
+
+#presentation .prez .card p {
+  font-size: 1.2rem;
+}
+
+#star-wars {
+  padding: 40px 10% 0;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding: 5% 10% 55% 5%;
+  height: 0;
+}
+
+@media screen and (max-width: 414px) {
+  .video-container {
+    margin-bottom: 120px;
+  }
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+}
+
+#apropos {
+  padding-bottom: 100px;
+  margin-bottom: 30px;
+}
+
+#apropos h1 {
+  padding: 150px 22%;
+  text-align: center;
+  color: #18223b;
+  font-family: "Oswald-SemiLight";
+}
+
+@media screen and (max-width: 816px) {
+  #apropos h1 {
+    padding: 150px 22%;
+    font-size: 3.7rem;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 644px) {
+  #apropos h1 {
+    padding: 100px 14%;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 537px) {
+  #apropos h1 {
+    padding: 80px 14%;
+    font-size: 3.3rem;
+    margin-bottom: 60px;
+  }
+}
+
+#apropos h1 strong {
+  font-family: "Oswald-SemiBold";
+}
+
+#roomsSection #roomsContainer {
+  width: 80%;
+  max-width: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+#roomsSection #roomsContainer h2 {
+  text-transform: uppercase;
+  height: 100px;
+  padding-top: 60px;
+  color: #1e1e1e;
+  margin-bottom: 30px;
+}
+
+#roomsSection #roomsContainer .roomCard {
+  margin: 15px 0;
+  color: whitesmoke;
+  width: 100%;
+  border-radius: 60px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "txt img";
+  position: relative;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+
+@media screen and (max-width: 500px) {
+  #roomsSection #roomsContainer .roomCard {
+    height: 450px;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 30% 70%;
+        grid-template-rows: 30% 70%;
+        grid-template-areas: "img"
+ "txt";
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #roomsSection #roomsContainer .roomCard {
+    height: 500px;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard:hover {
+  height: 330px;
+}
+
+@media screen and (max-width: 1000px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 630px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 600px;
+    -ms-grid-rows: 25% 75%;
+        grid-template-rows: 25% 75%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #roomsSection #roomsContainer .roomCard:hover {
+    height: 600px;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard:hover .hiddenButton {
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  #roomsSection #roomsContainer .roomCard:hover .cardContent {
+    height: 480px;
+    border-radius: 0 0 0 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #roomsSection #roomsContainer .roomCard:hover .cardContent {
+    height: 450px;
+    border-radius: 0 0 0 15px;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: txt;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #d1d1d1;
+  background: -webkit-gradient(linear, left top, right top, color-stop(65%, #d1d1d1), to(#e4e5e4));
+  background: linear-gradient(90deg, #d1d1d1 65%, #e4e5e4 100%);
+  color: #1e1e1e;
+  border-radius: 15px 0 0 15px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  #roomsSection #roomsContainer .roomCard .cardContent {
+    height: 280px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #roomsSection #roomsContainer .roomCard .cardContent {
+    height: 350px;
+    border-radius: 0 0 15px 15px;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardTitle {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardTitle h3 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardTitle span {
+  color: #f6a11c;
+  font-size: 1.2rem;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .roomSynopsis {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 320px) {
+  #roomsSection #roomsContainer .roomCard .cardContent .roomSynopsis {
+    font-size: 0.7rem;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .roomSynopsis .hiddenText {
+  display: none;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .roomResaButton {
+  width: 200px;
+  height: 30px;
+  background: #f6a11c;
+  border-radius: 5px;
+  text-align: center;
+  margin: 15px;
+  padding-top: 3px;
+  text-transform: uppercase;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .roomResaButton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .hiddenButton {
+  display: none;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gameTime {
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gameTime i {
+  padding-top: 4px;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gamePlayers {
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gamePlayers img {
+  padding-top: 4px;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gameAge {
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#roomsSection #roomsContainer .roomCard .cardContent .cardInfos .gameLevel {
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#roomsSection #roomsContainer .roomCard .cardImage {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: img;
+}
+
+@media screen and (max-width: 500px) {
+  #roomsSection #roomsContainer .roomCard .cardImage {
+    height: 150px;
+    border-radius: 0 0 0 0;
+  }
+}
+
+#roomsSection #roomsContainer .roomCard #roomCard4Img {
+  background: linear-gradient(280deg, black 0%, rgba(0, 0, 0, 0.233) 40%, rgba(0, 0, 0, 0) 100%), url("./../assets/img/star-wars-death-star-2.jpg") center/cover;
+}
+
+#roomsSection #roomsContainer .roomCard #roomCard1Img {
+  background: linear-gradient(280deg, black 0%, rgba(0, 0, 0, 0.233) 40%, rgba(0, 0, 0, 0) 100%), url("./../assets/img/chateau-ambulant.jpg") center/cover;
+}
+
+#roomsSection #roomsContainer .roomCard #roomCard2Img {
+  background: linear-gradient(280deg, black 0%, rgba(0, 0, 0, 0.233) 40%, rgba(0, 0, 0, 0) 100%), url("./../assets/img/chucky.png") center/cover;
+}
+
+#roomsSection #roomsContainer .roomCard #roomCard3Img {
+  background: linear-gradient(280deg, black 0%, rgba(0, 0, 0, 0.233) 40%, rgba(0, 0, 0, 0) 100%), url("./../assets/img/souterrainsjpg.jpg") right/cover;
+}
+
+#resaSection {
+  background: #18223b;
+  color: #e4e5e4;
+}
+
+#resaSection #resaContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 70px;
+}
+
+#resaSection #resaContainer h2 {
+  text-transform: uppercase;
+  height: 100px;
+  padding-top: 60px;
+}
+
+#resaSection #resaContainer #resaInputs {
+  height: 330px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#resaSection #resaContainer #resaInputs label {
+  color: #f6a11c;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+#resaSection #resaContainer #resaInputs select,
+#resaSection #resaContainer #resaInputs input {
+  font-size: 1.1rem;
+  background: #e4e5e4;
+  color: #1e1e1e;
+  width: 250px;
+  height: 50px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+#resaSection #resaContainer #resaInputs select option,
+#resaSection #resaContainer #resaInputs input option {
+  font-size: 1.2rem;
+}
+
+#resaSection #resaContainer .flexColCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext {
+  position: relative;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities #resaAvailabilitiesTitle {
+  font-size: 1.3rem;
+  color: #f6a11c;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities #resaAvailabilitiesTitle {
+    font-size: 1rem;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 {
+  width: 50%;
+  margin-right: 30px;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine {
+  width: 100%;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine:after,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine:after {
+  content: "";
+  border: 1px solid rgba(245, 245, 245, 0.603);
+  position: absolute;
+  bottom: -10px;
+  width: 93%;
+}
+
+@media screen and (max-width: 600px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine:after,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine:after {
+    display: none;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaHour,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaHour {
+  width: 65%;
+  text-align: left;
+  font-size: 1.3rem;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+@media screen and (max-width: 800px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaHour,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaHour {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaHour:hover,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaHour:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaAvailable,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaAvailable {
+  width: 25%;
+  text-align: center;
+  text-transform: uppercase;
+  background: #f6a11c;
+  color: #1e1e1e;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: 3px 3px 5px rgba(245, 245, 245, 0.301);
+          box-shadow: 3px 3px 5px rgba(245, 245, 245, 0.301);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaAvailable:hover,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaAvailable:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@media screen and (max-width: 800px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaAvailable,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaAvailable {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaAvailable,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaAvailable {
+    display: none;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaUnavailable,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaUnavailable {
+  width: 25%;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.308);
+}
+
+@media screen and (max-width: 800px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaUnavailable,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaUnavailable {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 .resaHourLine .resaUnavailable,
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 .resaHourLine .resaUnavailable {
+    display: none;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 #resaHour2, #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 #resaHour6, #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer1 #resaHour8,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 #resaHour2,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 #resaHour6,
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities .resaHourContainer #resaHoursContainer2 #resaHour8 {
+  color: rgba(245, 245, 245, 0.308);
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities #resaPreviousNextButtons {
+  margin: 40px 0;
+  padding-left: 70px;
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities #resaPreviousNextButtons button {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  background: #e4e5e4;
+  color: #1e1e1e;
+  text-align: center;
+  border-radius: 10px;
+  width: 120px;
+  height: 30px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaAvailabilities #resaPreviousNextButtons {
+    visibility: hidden;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaNextButton {
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+  height: 40px;
+  width: 150px;
+  background: #f6a11c;
+  color: #1e1e1e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  border-radius: 15px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 300px) {
+  #resaSection #resaContainer #resaAvailabilitiesAndNext #resaNextButton {
+    bottom: -40px;
+  }
+}
+
+#resaSection #resaContainer #resaAvailabilitiesAndNext #resaNextButton:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.isSelected {
+  color: #f6a11c;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* à remettre avant mise en prod !!! */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  min-height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  /* Modal Content */
+}
+
+@media screen and (max-width: 650px) {
+  .modal {
+    padding-top: 20px;
+  }
+}
+
+.modal .modal-content {
+  background-color: #18223b;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  height: 600px;
+  /* The Close Button */
+}
+
+@media screen and (max-width: 650px) {
+  .modal .modal-content {
+    height: 90vh;
+  }
+}
+
+.modal .modal-content #recapModalContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% 70% 15%;
+      grid-template-columns: 15% 70% 15%;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "prev descr res";
+}
+
+.modal .modal-content #recapModalContainer #btnReturnToResa {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: prev;
+  height: 40px;
+  width: 100%;
+  background: #f6a11c;
+  color: #1e1e1e;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .modal .modal-content #recapModalContainer #btnReturnToResa {
+    display: none;
+  }
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: descr;
+  padding: 20px;
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent h3 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 400px) {
+  .modal .modal-content #recapModalContainer #recapModalContent h3 {
+    font-size: 1rem;
+  }
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent #resaRecapContent {
+  height: 100px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 400px) {
+  .modal .modal-content #recapModalContainer #recapModalContent #resaRecapContent {
+    font-size: 0.7rem;
+  }
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent h4 {
+  color: #f6a11c;
+  font-size: 1.1rem;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 400px) {
+  .modal .modal-content #recapModalContainer #recapModalContent h4 {
+    font-size: 0.7rem;
+  }
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent form .flexColLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent form label {
+  color: #f6a11c;
+}
+
+@media screen and (max-width: 400px) {
+  .modal .modal-content #recapModalContainer #recapModalContent form label {
+    font-size: 0.7rem;
+  }
+}
+
+.modal .modal-content #recapModalContainer #recapModalContent form input {
+  max-width: 700px;
+  margin: 10px 0 20px;
+  height: 35px;
+  border-radius: 20px;
+  padding: 0 10px;
+}
+
+.modal .modal-content #recapModalContainer #btnConfirmResa {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: res;
+  height: 40px;
+  width: 100%;
+  background: #f6a11c;
+  color: #1e1e1e;
+  border-radius: 15px;
+  margin-top: 465px;
+}
+
+@media screen and (max-width: 650px) {
+  .modal .modal-content #recapModalContainer #btnConfirmResa {
+    position: absolute;
+    bottom: 60px;
+    right: 15vw;
+    width: 70%;
+  }
+}
+
+.modal .modal-content .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal .modal-content .close:hover, .modal .modal-content .close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#contact {
+  margin: 0 auto;
+}
+
+#contact .contact-info {
+  padding: 0 12% 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (max-width: 1300px) {
+  #contact .contact-info {
+    padding-top: 0;
+    -ms-flex-wrap: wrap-reverse;
+        flex-wrap: wrap-reverse;
+    text-align: center;
+  }
+}
+
+#contact .contact-info .info {
+  width: 50%;
+  margin-right: 3%;
+}
+
+#contact .contact-info .info img {
+  margin-right: 6%;
+  margin-bottom: 3%;
+  margin-top: 5%;
+  max-width: 100%;
+  height: auto;
+}
+
+#contact h2 {
+  margin-bottom: 3%;
+  margin-top: 3%;
+  margin-left: 10%;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 933px) {
+  #contact h2 {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 736px) {
+  #contact h2 {
+    font-size: 1.2rem;
+  }
+}
+
+#contact h3 {
+  margin-top: 12%;
+  font-size: 1.5rem;
+  font-family: "Oswald Regular";
+  font-weight: 300;
+}
+
+@media screen and (max-width: 736px) {
+  #contact h3 {
+    font-size: 0.75rem;
+    margin-top: 0;
+  }
+}
+
+#contact p {
+  line-height: 2;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 736px) {
+  #contact p {
+    font-size: 1.1rem;
+  }
+}
+
+footer {
+  background-color: #1e1e1e;
+}
+
+footer .foot-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  padding: 5%;
+  line-height: 2;
+}
+
+@media screen and (max-width: 928px) {
+  footer .foot-nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+  }
+}
+
+footer .foot-nav .logo .secondary-icon {
+  height: 100px;
+}
+
+@media screen and (max-width: 1150px) {
+  footer .foot-nav .logo .secondary-icon {
+    height: 80px;
+    margin-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 928px) {
+  footer .foot-nav .logo .secondary-icon {
+    height: 150px;
+    margin-left: 8%;
+    margin-bottom: 5%;
+  }
+}
+
+footer .foot-nav .ft-c i {
+  margin: 30px 10px;
+  font-size: 40px;
+  color: white;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+footer .foot-nav .ft-c i:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+footer .foot-nav .ft-c h4 {
+  margin-bottom: 15px;
+  color: #f6a11c;
+}
+
+footer .mentions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 1.3%;
+}
+
+footer .mentions ul li {
+  color: white;
+  display: inline-block;
+  font-size: 14px;
+}
+
+footer .mentions ul a {
+  color: white;
+  font-size: 14px;
+  font-family: "Oswald ExtraLight";
+  padding-right: 10px;
+}
+
+footer .mentions ul .mentions:last-child {
+  border: 2px solid white;
+}
+/*# sourceMappingURL=style.css.map */
