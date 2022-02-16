@@ -33,6 +33,7 @@ $customers = getCustomersFromDB();
         foreach ($customers as $customers_key => $info_customer) {
 
 
+
         ?>
             <tr>
                 <td><?= $info_customer->getFirstname() ?></td>

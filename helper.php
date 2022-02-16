@@ -208,3 +208,27 @@ function getCustomersFromDB()
 	}
 	return $array_customers;
 }
+function getBookingsByCustomerId(int $customer_id): array
+{
+	$conn = connect_to_mysql();
+	$array_bookings = [];
+
+	$query = $conn->prepare("SELECT *
+	FROM `booking`
+	WHERE `customer_id`= :customer_id
+	");
+
+	$query->execute([':customer_id' => $customer_id]);
+	foreach ($query->fetchAll() as $row) {
+
+		$array_bookings = new Booking(
+			(int)$row['room_id'],
+			(int) $row['customer_id'],
+			(int) $row['schedule_id'],
+			(string) $row['date'],
+			(int) $row['nb_player'],
+			(int) $row['total_price']
+		);
+	}
+	return $array_bookings;
+}

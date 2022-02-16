@@ -5,8 +5,8 @@ require_once("../../helper.php");
 require_once("../../Models/Customer.php");
 redirectIfNotAdmin();
 
-
-$customers = getCustomersFromDB();
+$customer_id =  $_GET['customer_id'];
+$customer = getCustomersFromDB();
 ?>
 <html>
 
@@ -14,9 +14,11 @@ $customers = getCustomersFromDB();
 </head>
 
 <body>
-    <h1>Ma réservation !</h1>
+    <h1>Ma réservation !!!!!!</h1>
     <?php
-    foreach ($customers as $customer['id'] => $info_customer) {
+    foreach ($customer_id as $booking_key => $info_customer) {
+
+
     ?>
         <tr>
             <td><?= $info_customer->getFirstname() ?></td>
