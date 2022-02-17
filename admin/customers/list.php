@@ -40,7 +40,7 @@ $customers = getCustomersFromDB();
                 <td><?= $info_customer->getLastname() ?></td>
                 <td><?= $info_customer->getEmail() ?></td>
                 <td>
-                    <a href="../bookings/mybooking.php?customerid=<?= $info_customer->getId() ?>">Voir votre réservation</a>
+                    <a href="../bookings/mybooking.php?customer_id=<?= $info_customer->getId() ?>">Voir votre réservation</a>
                     <a href="customers/update.php">Modifier</a>
                     <a href="customers/delete.php">Supprimer</a>
                 </td>

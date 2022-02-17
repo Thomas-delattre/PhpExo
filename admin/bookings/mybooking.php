@@ -2,11 +2,15 @@
 session_start();
 
 require_once("../../helper.php");
+require_once("../../Models/Booking.php");
+require_once("../../Models/Room.php");
 require_once("../../Models/Customer.php");
+require_once("../../Models/Schedule.php");
 redirectIfNotAdmin();
 
-$customer_id =  $_GET['customer_id'];
-$customer = getCustomersFromDB();
+$customer_id = (int) $_GET['customer_id'];
+
+$bookings = getBookingsByCustomerId($customer_id);
 ?>
 <html>
 
@@ -14,16 +18,31 @@ $customer = getCustomersFromDB();
 </head>
 
 <body>
-    <h1>Ma réservation !!!!!!</h1>
+    <h1>Ma réservation !</h1>
     <?php
-    foreach ($customer_id as $booking_key => $info_customer) {
+    foreach ($bookings as $Mybooking) {
+        $room = findRoomById($Mybooking->getRoomId());
+        var_dump($room);
+        die;
+        $customer = getCustomerById($Mybooking->getCustomerId());
+        $schedule = findScheduleById($Mybooking->getScheduleId());
 
 
+
+
+
+
+
+        // $schedule = findScheduleById($Mybooking->getHeure());
     ?>
+
         <tr>
-            <td><?= $info_customer->getFirstname() ?></td>
-            <td><?= $info_customer->getLastname() ?></td>
-            <td><?= $info_customer->getEmail() ?></td>
+            <td><?= $room->getName() ?></td>
+            <td><?= $customer->getFirstname() ?></td>
+            <td><?= $customer->getLastname() ?></td>
+            <td><?= $customer->getEmail() ?></td>
+            <td><?= $schedule->getHeure() ?></td>
+            <!-- <td><?= $Mybooking->getFirstname() ?></td> -->
         <?php
     }
         ?>

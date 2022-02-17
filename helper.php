@@ -149,8 +149,7 @@ function getBookingsByDateAndRoom(int $room_id, string $date)
 	$bookings = [];
 
 	$query = $conn->prepare(
-		"
-		SELECT schedule_id 
+		"SELECT schedule_id 
 	    FROM booking
 		WHERE room_id = :room_id
 		AND date = :date"
@@ -187,6 +186,50 @@ function redirectIfNotAdmin()
 		exit;
 	}
 }
+function getCustomerById(int $id)
+{
+	$conn = connect_to_mysql();
+
+	$query = $conn->prepare("SELECT * 
+	        FROM `customers`
+			WHERE id = :id");
+
+	$query->execute([':id' => $id]);
+	if ($row = $query->fetch()) {
+
+		$customer = new Customer(
+			$row['firstname'],
+			$row['lastname'],
+			$row['email']
+		);
+		$customer->setId((int)$row['id']);
+		return $customer;
+	} else {
+		return null;
+	}
+}
+function getScheduleById()
+{ {
+
+		$conn = connect_to_mysql();
+
+		$query = $conn->prepare("SELECT * 
+				FROM `schedule`
+				WHERE id= :id");
+
+		$query->execute([':id' => $id]);
+		if ($row = $query->fetch()) {
+
+			$schedule = new Schedule(
+				(int)$row['id'],
+				$row['heure'],
+			);
+			return $schedule;
+		} else {
+			return null;
+		}
+	}
+}
 function getCustomersFromDB()
 {
 	$conn = connect_to_mysql();
@@ -215,15 +258,15 @@ function getBookingsByCustomerId(int $customer_id): array
 
 	$query = $conn->prepare("SELECT *
 	FROM `booking`
-	WHERE `customer_id`= :customer_id
+	WHERE `customers_id`= :customers_id
 	");
 
-	$query->execute([':customer_id' => $customer_id]);
+	$query->execute([':customers_id' => $customer_id]);
 	foreach ($query->fetchAll() as $row) {
 
-		$array_bookings = new Booking(
+		$array_bookings[] = new Booking(
 			(int)$row['room_id'],
-			(int) $row['customer_id'],
+			(int) $row['customers_id'],
 			(int) $row['schedule_id'],
 			(string) $row['date'],
 			(int) $row['nb_player'],
