@@ -209,25 +209,23 @@ function getCustomerById(int $id)
 	}
 }
 function getScheduleById()
-{ {
+{
+	$conn = connect_to_mysql();
 
-		$conn = connect_to_mysql();
-
-		$query = $conn->prepare("SELECT * 
+	$query = $conn->prepare("SELECT * 
 				FROM `schedule`
 				WHERE id= :id");
 
-		$query->execute([':id' => $id]);
-		if ($row = $query->fetch()) {
+	$query->execute([':id' => $id]);
+	if ($row = $query->fetch()) {
 
-			$schedule = new Schedule(
-				(int)$row['id'],
-				$row['heure'],
-			);
-			return $schedule;
-		} else {
-			return null;
-		}
+		$schedule = new Schedule(
+			(int)$row['id'],
+			$row['heure'],
+		);
+		return $schedule;
+	} else {
+		return null;
 	}
 }
 function getCustomersFromDB()
@@ -274,4 +272,73 @@ function getBookingsByCustomerId(int $customer_id): array
 		);
 	}
 	return $array_bookings;
+}
+function getDateById(string $date)
+{ {
+		$conn = connect_to_mysql();
+		$date = [];
+
+		$query = $conn->prepare(
+			"SELECT date 
+			FROM `booking`"
+		);
+
+		$query->execute(['date' => (int)$date]);
+		if ($row = $query->fetch()) {
+			$date[] = $row['date'];
+		}
+		return $date;
+	}
+}
+function getNbPlayersId(int $nb_player)
+{
+	$conn = connect_to_mysql();
+	$nb_player = [];
+
+	$query = $conn->prepare(
+		"SELECT nb_player 
+		FROM `booking`"
+	);
+
+	$query->execute(['nb_player' => (int)$nb_player]);
+	if ($row = $query->fetch()) {
+		$nb_player[] = $row['nb_player'];
+	}
+	return $nb_player;
+}
+function getTotalPrice(int $total_price)
+{
+	$conn = connect_to_mysql();
+	$total_price = [];
+
+	$query = $conn->prepare(
+		"SELECT  total_price
+		FROM `booking`"
+	);
+
+	$query->execute(['total_price' => (int)$total_price]);
+	if ($row = $query->fetch()) {
+		$total_price[] = $row['total_price'];
+	}
+	return $total_price;
+}
+function update(string $update)
+{
+	$conn = connect_to_mysql();
+	$update = [];
+
+	$query = $conn->prepare(
+		"UPDATE `customers`
+        SET email ='',
+		firstname ='', 
+		lastname=''
+		WHERE id = :id"
+	);
+
+	$query->execute(['update' => (int) $update]);
+	if ($row = $query->fetch()) {
+
+		$update[] = $row['update'];
+	}
+	return $update;
 }

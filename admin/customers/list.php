@@ -3,6 +3,7 @@ session_start();
 
 require_once("../../helper.php");
 require_once("../../Models/Customer.php");
+
 redirectIfNotAdmin();
 
 $customers = getCustomersFromDB();
@@ -41,7 +42,7 @@ $customers = getCustomersFromDB();
                 <td><?= $info_customer->getEmail() ?></td>
                 <td>
                     <a href="../bookings/mybooking.php?customer_id=<?= $info_customer->getId() ?>">Voir votre réservation</a>
-                    <a href="customers/update.php">Modifier</a>
+                    <a href="update.php?customer_id=<?= $info_customer->getId() ?>">Modifier</a>
                     <a href="customers/delete.php">Supprimer</a>
                 </td>
             </tr>

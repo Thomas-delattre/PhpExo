@@ -56,4 +56,20 @@ class Booking
   {
     return $this->customer_id;
   }
+  public function getScheduleId()
+  {
+    return $this->schedule_id;
+  }
+  public function getDateById()
+  {
+    return $this->date;
+  }
+  public function getNbPlayersId()
+  {
+    return $this->nb_player;
+  }
+  public function getTotalPrice()
+  {
+    return $this->total_price;
+  }
 }

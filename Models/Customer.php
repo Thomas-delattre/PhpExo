@@ -60,4 +60,34 @@ class Customer
       return null;
     }
   }
+  public function update(): bool
+  {
+    $conn = connect_to_mysql();
+
+    $query = $conn->prepare('UPDATE customers
+        SET email = :email,
+        firstname = :firstname, 
+        lastname = :lastname
+        WHERE id = :id');
+
+    $result = $query->execute([
+      ':firstname' => $this->firstname,
+      ':lastname'  => $this->lastname,
+      ':email'     => $this->email,
+      ':id'        => $this->id,
+    ]);
+    return $result;
+  }
+  public function setFirstName(string $firstname)
+  {
+    $this->firstname = $firstname;
+  }
+  public function setLastName(string $lastname)
+  {
+    $this->lastname = $lastname;
+  }
+  public function setEmail(string $email)
+  {
+    $this->email = $email;
+  }
 }
