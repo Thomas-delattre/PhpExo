@@ -342,3 +342,78 @@ function update(string $update)
 	}
 	return $update;
 }
+function deleteCustomer(int $id)
+{
+	$conn = connect_to_mysql();
+
+	$query = $conn->prepare(
+		"DELETE 
+		FROM `customers`
+		WHERE id = :id"
+	);
+
+	$result = $query->execute([':id' => (int) $id]);
+
+	return $result;
+}
+
+function deleteBookingByCustomerId(int $id)
+{
+
+	$conn = connect_to_mysql();
+
+	$query = $conn->prepare(
+		"DELETE 
+		FROM `booking`
+		WHERE customers_id = :id"
+	);
+
+	$result = $query->execute([':id' => (int) $id]);
+	return $result;
+}
+function updateBooking(string $booking)
+{
+	$conn = connect_to_mysql();
+	$booking = [];
+
+	$query = $conn->prepare(
+		"UPDATE `booking`
+        SET room ='',
+		customer ='', 
+		schedule='',
+		date = '',
+		nb_player = '',
+		total_price = ''
+		WHERE id = :id"
+	);
+
+	$query->execute(['booking' => (int) $booking]);
+	if ($row = $query->fetch()) {
+
+		$booking[] = $row['booking'];
+	}
+	return $booking;
+}
+function getBookings(): array
+{
+	$conn = connect_to_mysql();
+	$array_bookings = [];
+
+	$query = $conn->prepare("SELECT *
+	FROM `booking` 
+	");
+
+	$query->execute();
+	foreach ($query->fetchAll() as $row) {
+
+		$array_bookings[] = new Booking(
+			(int)$row['room_id'],
+			(int) $row['customers_id'],
+			(int) $row['schedule_id'],
+			(string) $row['date'],
+			(int) $row['nb_player'],
+			(int) $row['total_price']
+		);
+	}
+	return $array_bookings;
+}

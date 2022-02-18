@@ -19,6 +19,9 @@ $customers = getCustomersFromDB();
 
     <?php
     include('../includes/menu.php');
+    if (isset($_GET['deleted'])) {
+        echo '<script> alert ("L\'utilisateur est bien supprimé")</script>';
+    }
     ?>
 
     <br />
@@ -43,7 +46,7 @@ $customers = getCustomersFromDB();
                 <td>
                     <a href="../bookings/mybooking.php?customer_id=<?= $info_customer->getId() ?>">Voir votre réservation</a>
                     <a href="update.php?customer_id=<?= $info_customer->getId() ?>">Modifier</a>
-                    <a href="customers/delete.php">Supprimer</a>
+                    <a href="delete.php?customer_id=<?= $info_customer->getId() ?>" onclick="return confirm('Are you sure?')">Supprimer</a>
                 </td>
             </tr>
         <?php

@@ -72,4 +72,54 @@ class Booking
   {
     return $this->total_price;
   }
+  public function updateBooking(): bool
+  {
+    $conn = connect_to_mysql();
+
+    $query = $conn->prepare(
+      "UPDATE `booking`
+        SET room ='',
+		customer ='', 
+		schedule='',
+		date = '',
+		nb_player = '',
+		total_price = ''
+		WHERE id = :id"
+    );
+
+
+    $result = $query->execute([
+      ':room_id'     => $this->room_id,
+      ':customer_id'  => $this->customer_id,
+      ':schedule_id'  => $this->schedule_id,
+      ':date'      => $this->date,
+      ':nb_player'   => $this->nb_player,
+      ':total_price'  => $this->total_price,
+    ]);
+    return $result;
+  }
+  public function setRoomId(string $room_id)
+  {
+    $this->room_id = $room_id;
+  }
+  public function setCustomerId(string $customer_id)
+  {
+    $this->customer_id = $customer_id;
+  }
+  public function setScheduleId(string $schedule_id)
+  {
+    $this->schedule_id = $schedule_id;
+  }
+  public function setDateById(string $date)
+  {
+    $this->date = $date;
+  }
+  public function setNbPlayersId(string $nb_player)
+  {
+    $this->nb_player = $nb_player;
+  }
+  public function setTotalPrice(string $total_price)
+  {
+    $this->total_price = $total_price;
+  }
 }
